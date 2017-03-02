@@ -1,6 +1,6 @@
 (function(angular) {
   'use strict';
-angular.module('beanApp', ['ngRoute', 'ngAnimate'])
+var beanApp = angular.module('beanApp', ['ngRoute', 'ngAnimate'])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
       $routeProvider
@@ -38,10 +38,12 @@ angular.module('beanApp', ['ngRoute', 'ngAnimate'])
       this.$location = $location;
       this.$routeParams = $routeParams;
   }])
-  .controller('HomeCtrl', ['$routeParams', function($routeParams) {
+  .controller('HomeCtrl', ['$routeParams', 'hexafy', 'users', function($routeParams, hexafy, users) {
     this.name = "HomeCtrl";
     this.params = $routeParams;
     this.tagline = "This is the index page";
+    hexafy.myFunc();
+    users.getUsers();
   }])
   .controller('SearchCtrl', ['$routeParams', function($routeParams) {
     this.name = "SearchCtrl";
@@ -68,5 +70,8 @@ angular.module('beanApp', ['ngRoute', 'ngAnimate'])
       templateUrl: 'views/content.html'
     }
  });
+
+beanApp.service('hexafy', function() { this.myFunc = function () { services.hex(); } });
+beanApp.service('users', function() { this.getUsers = function () { services.getUsers(); } });
 
 })(window.angular);
