@@ -20,28 +20,34 @@ module.exports = function (grunt) {
       },
       init: {
       files: [{
-          expand: true,
-          cwd: '<%= config.node %>/angular',
-          src: ['angular.min.js'],
-          dest: '<%= config.src %>/libs'
-      },{
-          expand: true,
-          cwd: '<%= config.node %>/angular-route',
-          src: ['angular-route.min.js'],
-          dest: '<%= config.src %>/libs'
-      },
-      {
-          expand: true,
-          cwd: '<%= config.node %>/angular-animate',
-          src: ['angular-animate.min.js'],
-          dest: '<%= config.src %>/libs'
-       },
-      {
-          expand: true,
-          cwd: '<%= config.node %>/jquery/dist',
-          src: ['jquery.min.js'],
-          dest: '<%= config.src %>/libs'
-       }
+            expand: true,
+            cwd: '<%= config.node %>/angular',
+            src: ['angular.min.js', 'angular.min.js.map'],
+            dest: '<%= config.src %>/libs'
+        },{
+            expand: true,
+            cwd: '<%= config.node %>/angular-route',
+            src: ['angular-route.min.js', 'angular-route.min.js.map'],
+            dest: '<%= config.src %>/libs'
+        },
+        {
+            expand: true,
+            cwd: '<%= config.node %>/angular-animate',
+            src: ['angular-animate.min.js', 'angular-animate.min.js.map'],
+            dest: '<%= config.src %>/libs'
+         },
+         {
+            expand: true,
+            cwd: '<%= config.node %>/jquery/dist',
+            src: ['jquery.min.js'],
+            dest: '<%= config.src %>/libs'
+         },
+         {
+            expand: true,
+            cwd: '<%= config.node %>/bootstrap/dist',
+            src: ['css', 'fonts', 'js'],
+            dest: '<%= config.src %>/libs/bootstrap'
+         }
        ]        
       } 
     }, 
